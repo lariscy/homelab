@@ -7,18 +7,18 @@ services:
     ports:
       - 80:80
       - 443:443
-    env_file:
-      - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/etc/traefik/traefik.yml:ro
       - ./acme:/etc/traefik/acme
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=Host(`traefik.lariscy.xyz`)"
+      - "traefik.http.routers.api.rule=Host(`traefik.local.lariscy.xyz`)"
       - "traefik.http.routers.api.entrypoints=websecure"
       - "traefik.http.routers.api.tls.certresolver=leresolver"
       - "traefik.http.routers.api.service=api@internal"
+    env_file:
+      - .env
     networks:
       - proxy
 
