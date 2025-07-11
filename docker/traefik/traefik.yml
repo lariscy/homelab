@@ -135,7 +135,7 @@ certificatesResolvers:
   leresolver:
     acme:
       email: steven.lariscy@gmail.com
-      storage: acme.json
+      storage: /etc/traefik/acme/acme.json
       dnsChallenge:
         provider: cloudflare
         resolvers:
