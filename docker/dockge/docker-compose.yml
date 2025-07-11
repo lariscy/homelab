@@ -18,6 +18,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.dockge.rule=Host(`dockge.local.lariscy.xyz`)"
       - "traefik.http.routers.dockge.entrypoints=websecure"
+      - "traefik.http.routers.dockge.tls=true"
       - "traefik.http.routers.dockge.tls.certresolver=leresolver"
     environment:
       # Tell Dockge where to find the stacks
