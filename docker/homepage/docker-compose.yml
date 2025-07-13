@@ -1,0 +1,22 @@
+---
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:1.3.2
+    container_name: homepage
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./config:/app/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.homepage.loadbalancer.server.port=3000"
+      - "traefik.http.routers.homepage.rule=Host(`homepage.local.lariscy.xyz`)"
+      - "traefik.http.routers.homepage.entrypoints=websecure"
+      - "traefik.http.routers.homepage.tls=true"
+      - "traefik.http.routers.homepage.tls.certresolver=leresolver"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
