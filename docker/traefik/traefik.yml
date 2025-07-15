@@ -127,6 +127,10 @@ providers:
 
     # Expose containers by default in traefik
     exposedByDefault: false
+  # Enable dynamic config directory
+  file:
+    directory: /etc/traefik/dynamic
+    watch: true
 
 ################################################################
 # Certificate resolver configuration

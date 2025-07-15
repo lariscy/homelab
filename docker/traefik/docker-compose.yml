@@ -10,6 +10,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./dynamic:/etc/traefik/dynamic:ro
       - ./acme:/etc/traefik/acme
     labels:
       - "traefik.enable=true"
@@ -18,6 +19,7 @@ services:
       - "traefik.http.routers.api.tls=true"
       - "traefik.http.routers.api.tls.certresolver=leresolver"
       - "traefik.http.routers.api.service=api@internal"
+      - "traefik.http.routers.api.middlewares=internal-only@file"
     env_file:
       - .env
     networks:

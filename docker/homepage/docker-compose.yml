@@ -14,6 +14,7 @@ services:
       - "traefik.http.routers.homepage.entrypoints=websecure"
       - "traefik.http.routers.homepage.tls=true"
       - "traefik.http.routers.homepage.tls.certresolver=leresolver"
+      - "traefik.http.routers.homepage.middlewares=internal-only@file"
     environment:
       HOMEPAGE_ALLOWED_HOSTS: homepage.local.lariscy.xyz
     networks:

@@ -11,6 +11,7 @@ services:
       - "traefik.http.routers.it-tools.entrypoints=websecure"
       - "traefik.http.routers.it-tools.tls=true"
       - "traefik.http.routers.it-tools.tls.certresolver=leresolver"
+      - "traefik.http.routers.it-tools.middlewares=internal-only@file"
     networks:
       - proxy
 
