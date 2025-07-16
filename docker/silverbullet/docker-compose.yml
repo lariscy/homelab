@@ -1,0 +1,22 @@
+---
+services:
+  silverbullet:
+    image: ghcr.io/silverbulletmd/silverbullet:v2
+    container_name: silverbullet
+    restart: unless-stopped
+    volumes:
+      - ./space:/space
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.silverbullet.loadbalancer.server.port=3000"
+      - "traefik.http.routers.silverbullet.rule=Host(`silverbullet.local.lariscy.xyz`)"
+      - "traefik.http.routers.silverbullet.entrypoints=websecure"
+      - "traefik.http.routers.silverbullet.tls=true"
+      - "traefik.http.routers.silverbullet.tls.certresolver=leresolver"
+      - "traefik.http.routers.silverbullet.middlewares=internal-only@file"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
