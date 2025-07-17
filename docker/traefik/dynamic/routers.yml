@@ -1,0 +1,9 @@
+http:
+  routers:
+    homeassistant-router:
+      entryPoints:
+        - websecure
+      rule: "Host(`ha.local.lariscy.xyz`)"
+      service: homeassistant-service
+      tls:
+        certresolver: leresolver

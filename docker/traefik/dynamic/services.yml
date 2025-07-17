@@ -1,0 +1,6 @@
+http:
+  services:
+    homeassistant-service:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.86.52:8123"
