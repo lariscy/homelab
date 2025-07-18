@@ -6,7 +6,6 @@ services:
     restart: unless-stopped
     volumes:
       - ./data:/data
-      - ./server.yml:/etc/ntfy/server.yml
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.vaultwarden.loadbalancer.server.port=80"
