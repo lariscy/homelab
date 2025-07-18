@@ -3,7 +3,7 @@ http:
     homeassistant-router:
       entryPoints:
         - websecure
-      rule: "Host(`ha.local.lariscy.xyz`)"
+      rule: "Host(`ha.lariscy.xyz`)"
       service: homeassistant-service
       tls:
         certresolver: leresolver
