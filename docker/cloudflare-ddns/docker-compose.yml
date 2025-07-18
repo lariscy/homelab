@@ -1,0 +1,11 @@
+---
+services:
+  cloudflare-ddns:
+    image: timothyjmiller/cloudflare-ddns:latest
+    container_name: cloudflare-ddns
+    restart: unless-stopped
+    network_mode: 'host'
+    volumes:
+      - ./config.json:/config.json
+    env_file:
+      - .env
