@@ -13,6 +13,7 @@ services:
       - "traefik.http.routers.vaultwarden.entrypoints=websecure"
       - "traefik.http.routers.vaultwarden.tls=true"
       - "traefik.http.routers.vaultwarden.tls.certresolver=leresolver"
+      - "traefik.http.routers.silverbullet.middlewares=internal-only@file"
     networks:
       - proxy
 
