@@ -1,0 +1,12 @@
+---
+services:
+  coredns:
+    image: coredns/coredns:1.12.2
+    container_name: coredns
+    restart: unless-stopped
+    network_mode: 'host'
+    ports:
+      - 53:53/udp
+    volumes:
+      - ./Corefile:/Corefile
+      - ./local.lariscy.xyz:/local.lariscy.xyz
