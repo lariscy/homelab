@@ -144,3 +144,9 @@ certificatesResolvers:
         provider: cloudflare
         resolvers:
           - "1.1.1.1:53"
+
+################################################################
+# ignore backend cert errors
+################################################################
+serversTransport:
+  insecureSkipVerify: true
