@@ -7,3 +7,12 @@ http:
       service: homeassistant-service
       tls:
         certresolver: leresolver
+    proxmox-router:
+      entryPoints:
+        - websecure
+      rule: "Host(`proxmox.local.lariscy.xyz`)"
+      service: proxmox-service
+      tls:
+        certresolver: leresolver
+      middlewares:
+        - "internal-only"

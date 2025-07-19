@@ -4,3 +4,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.86.52:8123"
+    proxmox-service:
+      loadBalancer:
+        servers:
+          - url: "https://192.168.86.250:8006"
