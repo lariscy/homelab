@@ -10,6 +10,4 @@ $TTL 3600
         IN NS dns.local.site.com.
 
 dns     IN A  192.168.86.45
-a       IN A  1.2.3.4
-b       IN A  2.3.4.5
 *       IN A  192.168.86.45

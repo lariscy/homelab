@@ -1,5 +1,8 @@
 local.lariscy.xyz {
     file local.lariscy.xyz
+    header {
+        response set ra
+    }
     log
     errors
 }
