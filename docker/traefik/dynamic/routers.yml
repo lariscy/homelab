@@ -16,3 +16,12 @@ http:
         certresolver: leresolver
       middlewares:
         - "internal-only"
+    openmediavault-router:
+      entryPoints:
+        - websecure
+      rule: "Host(`openmediavault.local.lariscy.xyz`)"
+      service: openmediavault-service
+      tls:
+        certresolver: leresolver
+      middlewares:
+        - "internal-only"
