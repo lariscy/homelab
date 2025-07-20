@@ -10,4 +10,5 @@ $TTL 3600
         IN NS dns.local.site.com.
 
 dns     IN A  192.168.86.45
+omv     IN A  192.168.86.53
 *       IN A  192.168.86.45
