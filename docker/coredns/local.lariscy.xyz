@@ -1,5 +1,5 @@
 $TTL 3600
-@       IN SOA dns.local.site.com. admin.local.site.com. (
+@       IN SOA dns.local.lariscy.xyz. admin.local.lariscy.xyz. (
             2025071901 ; serial
             3600       ; refresh
             1800       ; retry
@@ -7,7 +7,7 @@ $TTL 3600
             86400      ; minimum
 )
 
-        IN NS dns.local.site.com.
+        IN NS dns.local.lariscy.xyz.
 
 dns     IN A  192.168.86.45
 omv     IN A  192.168.86.53
