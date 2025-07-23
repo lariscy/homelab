@@ -1,0 +1,33 @@
+---
+services:
+  nginx:
+    image: nginx:1.29.0
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+        - ./web:/usr/share/nginx/html:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.nginx.loadbalancer.server.port=80"
+      # nginx1.local.lariscy.xyz → /nginx1/
+      - "traefik.http.routers.nginx1.rule=Host(`nginx1.local.lariscy.xyz`)"
+      - "traefik.http.routers.nginx1.entrypoints=websecure"
+      - "traefik.http.routers.nginx1.tls=true"
+      - "traefik.http.routers.nginx1.tls.certresolver=leresolver"
+      - "traefik.http.routers.nginx1.middlewares=nginx1-rewrite"
+      - "traefik.http.middlewares.nginx1-rewrite.replacePathRegex.regex=^/(.*)"
+      - "traefik.http.middlewares.nginx1-rewrite.replacePathRegex.replacement=/nginx1/$1"
+      # nginx2.local.lariscy.xyz → /nginx2/
+      - "traefik.http.routers.nginx2.rule=Host(`nginx2.local.lariscy.xyz`)"
+      - "traefik.http.routers.nginx2.entrypoints=websecure"
+      - "traefik.http.routers.nginx2.tls=true"
+      - "traefik.http.routers.nginx2.tls.certresolver=leresolver"
+      - "traefik.http.routers.nginx2.middlewares=nginx2-rewrite"
+      - "traefik.http.middlewares.nginx2-rewrite.replacePathRegex.regex=^/(.*)"
+      - "traefik.http.middlewares.nginx2-rewrite.replacePathRegex.replacement=/nginx2/$1"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
