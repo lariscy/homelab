@@ -9,6 +9,6 @@ $TTL 3600
 
         IN NS dns.local.lariscy.xyz.
 
-dns     IN A  192.168.86.45
+dns     IN A  192.168.86.2
 omv     IN A  192.168.86.53
 *       IN A  192.168.86.45
