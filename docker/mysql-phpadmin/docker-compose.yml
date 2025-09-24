@@ -24,7 +24,7 @@ services:
     image: php:8.4-apache
     container_name: php
     restart: unless-stopped
-    volunes:
+    volumes:
       - ./html:/var/www/html
     ports:
       - "8888:80"
