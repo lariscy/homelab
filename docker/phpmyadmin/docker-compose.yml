@@ -1,0 +1,10 @@
+---
+services:
+  phpmyadmin:
+    image: phpmyadmin:5.2.2-apache
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - "8080:80"
