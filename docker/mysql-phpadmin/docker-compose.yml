@@ -19,3 +19,14 @@ services:
       - "8080:80"
     depends_on:
       - mysql
+  
+  php:
+    image: php:8.4-apache
+    container_name: php
+    restart: unless-stopped
+    volunes:
+      - ./data:/var/www/html
+    ports:
+      - "8888:80"
+    depends_on:
+      - mysql
