@@ -9,7 +9,7 @@ services:
     env_file:
       - .env
     networks:
-      - internal
+      - proxy
   
   phpmyadmin:
     image: phpmyadmin:5.2.2-apache
@@ -22,7 +22,7 @@ services:
     depends_on:
       - mysql
     networks:
-      - internal
+      - proxy
   
   php:
     build:
@@ -43,11 +43,8 @@ services:
     depends_on:
       - mysql
     networks:
-      - internal
       - proxy
 
 networks:
-  internal:
-    driver: bridge
   proxy:
     external: true
