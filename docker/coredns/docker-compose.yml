@@ -1,7 +1,7 @@
 ---
 services:
   coredns:
-    image: coredns/coredns:1.12.2
+    image: coredns/coredns:1.13.1
     container_name: coredns
     restart: unless-stopped
     network_mode: 'host'

@@ -1,7 +1,7 @@
 ---
 services:
   wireguard:
-    image: linuxserver/wireguard:arm64v8-1.0.20210914
+    image: linuxserver/wireguard:arm64v8-1.0.20250521
     container_name: wireguard
     restart: unless-stopped
     volumes:
